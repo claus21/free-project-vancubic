@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rounded Banner with Modules</title>
+  <style>
+    /* ===== Typography System ===== */
+    @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Lt.ttf') format('truetype');
+      font-weight: 300; /* Light */
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Rg.ttf') format('truetype');
+      font-weight: 700; /* Bold/Regular */
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --font-size-sm: 1rem;    /* module-text */
+      --font-size-md: 1.1rem;  /* checklist li */
+      --font-size-lg: 30px;  /* banner-text, h4 */
+      --font-size-xl: 40px;  /* h2 */
+      --font-size-price: 32px; /* price */
+    }
+
+    body {
+      font-family: 'FuturaNowHeadline', Arial, sans-serif;
+      font-weight: 300; /* Default to light */
+      color: #333;
+    }
+
+    .banner-text {
+      font-size: var(--font-size-lg);
+    }
+
+    .banner-text h4 {
+      padding-left: 20px; /* More space from left border */
+    }
+
+    .module-content h2,
+    .new-module-content h2 {
+      font-size: var(--font-size-xl);
+      font-weight: 700; /* Bold, uses FuturaNowHeadline-Rg */
+    }
+
+    .checklist li {
+      font-size: var(--font-size-md);
+    }
+
+    .module-text {
+      font-size: var(--font-size-sm);
+    }
+
+    .module-text h4,
+    .new-module .module-text h4 {
+      font-size: var(--font-size-lg);
+      font-style: italic;
+      font-weight: 300; /* Light */
+    }
+
+    .new-module .module-text.price {
+      font-size: var(--font-size-price);
+    }
+
+    /* ===== Layout Styles ===== */
+    .banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #bcbeb8;
+      border: 2px solid #ddd;
+      border-radius: 25px;
+      padding: 60px 20px 70px 50px;
+      max-width: 1200px;
+      margin: 50px auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .banner img {
+      width: 250px;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+    .banner-text {
+      flex: 1;
+      margin-left: 40px;
+    }
+    .module {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      background-color: #ffffff;
+      border: 2px solid #ddd;
+      border-radius: 20px;
+      padding: 20px 30px 30px 60px;
+      max-width: 1200px;
+      margin: 40px auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .module-content {
+      flex: 1;
+      margin-right: 20px;
+    }
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+    .checklist li {
+      margin-bottom: 8px;
+    }
+    .checklist .checked::before {
+      content: "✅";
+      margin-right: 8px;
+    }
+    .checklist .unchecked::before {
+      content: "⬜";
+      margin-right: 8px;
+    }
+    .module-img {
+      width: 400px;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+      padding-top: 40px;
+    }
+    .module-text {
+      text-align: center;
+      padding-right: 40px;
+    }
+    .new-module {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      background-color: #bcbeb8;
+      border: none;
+      padding: 20px 30px 30px 30px;
+      max-width: 1200px;
+      margin: 40px auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .new-module .new-module-content {
+      flex: 1;
+      margin-right: 20px;
+      padding: 20px;
+      background-color: #bcbeb8;
+      text-align: left;
+    }
+    .new-module .module-img {
+      width: 400px;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+      margin: 0 auto;
+      display: block;
+      padding-top: 50px;
+    }
+    .new-module .module-text {
+      text-align: center;
+      padding-right: 40px;
+    }
+    @media (max-width: 600px) {
+      :root {
+        --font-size-lg: 1.2rem; /* Reduce h4, banner-text */
+        --font-size-xl: 1.3rem; /* Reduce h2 */
+        --font-size-price: 24px; /* Reduce price */
+      }
+      .banner {
+        padding: 30px 15px; /* Less padding for mobile */
+      }
+      .banner, .module, .new-module {
+        flex-direction: column;
+        text-align: center;
+      }
+      .banner img, .module-img, .new-module .module-img {
+        margin-bottom: 15px;
+        float: none;
+        width: 100%;
+        max-width: 400px;
+        padding-top: 20px;
+      }
+      .banner-text, .module-content, .new-module .new-module-content {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .banner-text h4 {
+        padding-left: 15px; /* More space from left border */
+      }
+      .module-text, .checklist, .new-module .module-text {
+        text-align: left;
+        padding: 0 10px 0 15px; /* More left padding */
+      }
+      .new-module .module-text.price {
+        text-align: center; /* Keep centered */
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="banner">
+  <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_1_lLY.png" alt="Banner Image">
+  <div class="banner-text">
+    <h4>Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h4>
+  </div>
+</div>
+
+<div class="module">
+  <div class="module-content">
+    <h3>Los Módulos VanCubic Basic vienen con el siguiente equipamiento de serie:</h3>
+    <ul class="checklist">
+      <li class="checked">Puertas de aluminio + cristal</li>
+      <li class="checked">Suelo tarima vinílica color madera</li>
+      <li class="checked">Paredes y techo con aislamiento térmico</li>
+      <li class="checked">Instalación eléctrica con iluminación led</li>
+      <li class="checked">Estación de energía con baterías de litio 1000W con enchufes de USB - 12v-220v</li>
+      <li class="checked">Muebles de madera de chopo con HPL</li>
+    </ul>
+  </div>
+  <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/sala_Vut.png" alt="Comfort Package Image">
+</div>
+
+<div class="module">
+  <div class="module-content">
+    <h2>Salón / Dormitorio</h2>
+    <ul class="checklist">
+      <li class="checked">Cama para adultos (1,20m. de ancho)</li>
+      <li class="checked">Arcón - sofá</li>
+      <li class="checked">Mesa flotante</li>
+      <li class="checked">Mueble alto encima del sofá</li>
+      <li class="checked">Armario de maletas</li>
+    </ul>
+  </div>
+  <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/comedor_Gsr.png" alt="Storage Solutions Image">
+</div>
+
+<div class="module">
+  <div class="module-content">
+    <h2>Cocina / Baño</h2>
+    <ul class="checklist">
+      <li class="checked">Mueble de cocina con puertas y cajones de chopo con HPL</li>
+      <li class="checked">Mueble alacena con hueco para cestas</li>
+      <li class="checked">Frente de la encimera imitación de azulejo</li>
+      <li class="checked">Encimera de pino</li>
+      <li class="checked">Cocina de gas portátil</li>
+      <li class="checked">Fregadero de acero inoxidable</li>
+      <li class="checked">Grifo de agua autónomo</li>
+      <li class="checked">Nevera eléctrica compresor 60L.</li>
+      <li class="checked">Depósitos de aguas 68L. limpias/ 54L. grises.</li>
+      <li class="checked">WC Químico</li>
+    </ul>
+    <h2>Ducha</h2>
+    <ul class="checklist">
+      <li class="checked">Mueble de ducha interior y exterior</li>
+      <li class="checked">Acabado puerta barrotes de pino</li>
+      <li class="checked">Grifo monomando 2 vías y telefonillo con</li>
+      <li class="checked">pulsador</li>
+      <li class="checked">Cortinilla antisalpicaduras</li>
+    </ul>
+  </div>
+  <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/5_eId.png" alt="Outdoor Kit Image" style="padding-top: 50px ; max-width: 450px;">
+</div>
+
+<div class="new-module">
+  <div class="new-module-content">
+    <h2>Extras</h2>
+    <ul class="checklist">
+      <li class="unchecked">Litera de niño</li>
+      <li class="unchecked">Litera para dos adultos</li>
+      <li class="unchecked">Plataforma de instalación</li>
+      <li class="unchecked">Panel solar portátil 110w</li>
+      <li class="unchecked">Mosquitera</li>
+      <li class="unchecked">Calentador de agua portátil EcoFlow Delta 2 Max 2000W</li>
+    </ul>
+  </div>
+  <div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_1_lLY.png" alt="Adventure Bundle Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+    <p class="module-text price">desde <strong>€17.990 </strong> (Iva incluido)</p>
+  </div>
+</div>
+</body>
+</html>
