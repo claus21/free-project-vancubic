@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VanCubic Landing Page</title>
   <style>
-    /* ===== Typography ===== */
     @font-face {
       font-family: 'FuturaNowHeadline';
       src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Lt.ttf') format('truetype');
@@ -22,11 +21,11 @@
     }
 
     :root {
-      --font-sm: 0.95rem;    /* Body text */
-      --font-md: 1.2rem;     /* Checklist items */
-      --font-lg: 1.5rem;     /* h3, banner text */
-      --font-xl: 2rem;       /* h2 */
-      --font-price: 1.75rem; /* Price */
+      --font-sm: 0.95rem;
+      --font-md: 1.2rem;
+      --font-lg: 1.5rem;
+      --font-xl: 2rem;
+      --font-price: 1.75rem;
       --color-text: #333;
       --color-bg-module: #fff;
       --color-bg-extras: #bcbeb8;
@@ -60,7 +59,6 @@
       padding-left: 15px;
     }
 
-    /* ===== Shared Styles ===== */
     .checklist {
       list-style: none;
       padding: 0;
@@ -150,10 +148,11 @@
       margin: 20px auto;
       box-shadow: 0 0px 0px rgba(0,0,0,0.1);
     }
+
     .new-module .new-module-content {
       flex: 1;
       margin-right: 20px;
-      padding: 20px;
+      padding: 20px 20px 30px 20px;
       background-color: #bcbeb8;
       text-align: left;
     }
@@ -218,7 +217,7 @@
 <div class="banner">
   <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_1_lLY.png" alt="Banner Image">
   <div class="banner-text">
-    <h4 id="header">Incluye todo lo que necesitas.</h4>
+    <h id="header" style="font-size: var(--font-xl);">Incluye todo lo que necesitas.</h2>
   </div>
 </div>
 
@@ -279,8 +278,7 @@
 
 <div class="new-module">
   <div class="new-module-content">
-    <h2 id="box5-header">Extras</h2>
-    <h4 id="box5-subheader">Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h4>
+    <h3 id="box5-subheader">Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h3>
     <ul class="checklist">
       <li class="unchecked" id="box5-item1">Litera de niño</li>
       <li class="unchecked" id="box5-item2">Litera para dos adultos</li>
@@ -293,13 +291,12 @@
   </div>
   <div>
     <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_1_lLY.png" alt="Adventure Bundle Image">
-    <p class="price" id="price">desde €17.990 (IVA incluido)</p>
+    <h2 class="price" id="price">desde €17.990 (IVA incluido)</h2>
     <p id="price-note">*Transporte no incluido.</p>
   </div>
 </div>
 
 <script>
-  // Language content dictionary with translations
   const translations = {
     es: {
       header: "Incluye todo lo que necesitas.",
@@ -341,7 +338,8 @@
       box5_item5: "Mosquitera",
       box5_item6: "Calentador de agua portátil",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "desde €17.990 (IVA incluido)",
+      price_prefix: "desde",
+      price_suffix: "(IVA incluido)",
       price_note: "*Transporte no incluido."
     },
     pl: {
@@ -384,7 +382,8 @@
       box5_item5: "Siatka przeciw owadom",
       box5_item6: "Przenośny podgrzewacz wody",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "od €18.290 (z VAT)",
+      price_prefix: "od",
+      price_suffix: "(z VAT)",
       price_note: "*Transport nie jest zawarty w cenie."
     },
     en: {
@@ -427,7 +426,8 @@
       box5_item5: "Mosquito net",
       box5_item6: "Portable water heater",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "from €17.990 (VAT included)",
+      price_prefix: "from",
+      price_suffix: "(VAT included)",
       price_note: "*Transport not included."
     },
     fr: {
@@ -470,7 +470,8 @@
       box5_item5: "Moustiquaire",
       box5_item6: "Chauffe-eau portatif",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "À partir de €19.990 (TVA incluse)",
+      price_prefix: "À partir de",
+      price_suffix: "(TVA incluse)",
       price_note: "*Transport inclus."
     },
     nl: {
@@ -513,12 +514,12 @@
       box5_item5: "Klamboe",
       box5_item6: "Draagbare waterverwarmer",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "Vanaf €19.990 (Incl. 21% BTW)",
+      price_prefix: "Vanaf",
+      price_suffix: "(Incl. 21% BTW)",
       price_note: "*Vervoer inbegrepen."
     }
   };
 
-  // Price data for Compact model by country
   const compactPrices = {
     'España': '17.990,00 €',
     'Portugal': '17.990,00 €',
@@ -530,77 +531,95 @@
     'Polonia': '18.290,00 €'
   };
 
-  // Language to country mapping for price selection
   const languageToCountry = {
     es: 'España',
     pl: 'Polonia',
     fr: 'Francia',
     nl: 'Países Bajos',
-    en: 'España' // Default to Spain for English
+    en: 'España'
   };
 
-  // Detect browser language
   function detectBrowserLanguage() {
     const userLang = navigator.language || navigator.userLanguage;
-    const langCode = userLang.split('-')[0]; // Get primary language code
-    return translations[langCode] ? langCode : 'es'; // Fallback to Spanish
+    const langCode = userLang.split('-')[0];
+    return translations[langCode] ? langCode : 'es';
   }
 
-  // Set language and price based on browser language
   function setLanguage(lang) {
-    document.getElementById('header').textContent = translations[lang].header;
-    document.getElementById('box1-header').textContent = translations[lang].box1_header;
-    document.getElementById('box1-item1').textContent = translations[lang].box1_item1;
-    document.getElementById('box1-item2').textContent = translations[lang].box1_item2;
-    document.getElementById('box1-item3').textContent = translations[lang].box1_item3;
-    document.getElementById('box1-item4').textContent = translations[lang].box1_item4;
-    document.getElementById('box1-item5').textContent = translations[lang].box1_item5;
-    document.getElementById('box1-item6').textContent = translations[lang].box1_item6;
-    document.getElementById('box2-header').textContent = translations[lang].box2_header;
-    document.getElementById('box2-item1').textContent = translations[lang].box2_item1;
-    document.getElementById('box2-item2').textContent = translations[lang].box2_item2;
-    document.getElementById('box2-item3').textContent = translations[lang].box2_item3;
-    document.getElementById('box2-item4').textContent = translations[lang].box2_item4;
-    document.getElementById('box2-item5').textContent = translations[lang].box2_item5;
-    document.getElementById('box3-header').textContent = translations[lang].box3_header;
-    document.getElementById('box3-item1').textContent = translations[lang].box3_item1;
-    document.getElementById('box3-item2').textContent = translations[lang].box3_item2;
-    document.getElementById('box3-item3').textContent = translations[lang].box3_item3;
-    document.getElementById('box3-item4').textContent = translations[lang].box3_item4;
-    document.getElementById('box3-item5').textContent = translations[lang].box3_item5;
-    document.getElementById('box3-item6').textContent = translations[lang].box3_item6;
-    document.getElementById('box3-item7').textContent = translations[lang].box3_item7;
-    document.getElementById('box3-item8').textContent = translations[lang].box3_item8;
-    document.getElementById('box3-item9').textContent = translations[lang].box3_item9;
-    document.getElementById('box3-item10').textContent = translations[lang].box3_item10;
-    document.getElementById('box4-header').textContent = translations[lang].box4_header;
-    document.getElementById('box4-item1').textContent = translations[lang].box4_item1;
-    document.getElementById('box4-item2').textContent = translations[lang].box4_item2;
-    document.getElementById('box4-item3').textContent = translations[lang].box4_item3;
-    document.getElementById('box4-item4').textContent = translations[lang].box4_item4;
-    document.getElementById('box5-header').textContent = translations[lang].box5_header;
-    document.getElementById('box5-subheader').textContent = translations[lang].box5_subheader;
-    document.getElementById('box5-item1').textContent = translations[lang].box5_item1;
-    document.getElementById('box5-item2').textContent = translations[lang].box5_item2;
-    document.getElementById('box5-item3').textContent = translations[lang].box5_item3;
-    document.getElementById('box5-item4').textContent = translations[lang].box5_item4;
-    document.getElementById('box5-item5').textContent = translations[lang].box5_item5;
-    document.getElementById('box5-item6').textContent = translations[lang].box5_item6;
-    document.getElementById('box5-item7').textContent = translations[lang].box5_item7;
+    const elements = [
+      { id: 'header', key: 'header' },
+      { id: 'box1-header', key: 'box1_header' },
+      { id: 'box1-item1', key: 'box1_item1' },
+      { id: 'box1-item2', key: 'box1_item2' },
+      { id: 'box1-item3', key: 'box1_item3' },
+      { id: 'box1-item4', key: 'box1_item4' },
+      { id: 'box1-item5', key: 'box1_item5' },
+      { id: 'box1-item6', key: 'box1_item6' },
+      { id: 'box2-header', key: 'box2_header' },
+      { id: 'box2-item1', key: 'box2_item1' },
+      { id: 'box2-item2', key: 'box2_item2' },
+      { id: 'box2-item3', key: 'box2_item3' },
+      { id: 'box2-item4', key: 'box2_item4' },
+      { id: 'box2-item5', key: 'box2_item5' },
+      { id: 'box3-header', key: 'box3_header' },
+      { id: 'box3-item1', key: 'box3_item1' },
+      { id: 'box3-item2', key: 'box3_item2' },
+      { id: 'box3-item3', key: 'box3_item3' },
+      { id: 'box3-item4', key: 'box3_item4' },
+      { id: 'box3-item5', key: 'box3_item5' },
+      { id: 'box3-item6', key: 'box3_item6' },
+      { id: 'box3-item7', key: 'box3_item7' },
+      { id: 'box3-item8', key: 'box3_item8' },
+      { id: 'box3-item9', key: 'box3_item9' },
+      { id: 'box3-item10', key: 'box3_item10' },
+      { id: 'box4-header', key: 'box4_header' },
+      { id: 'box4-item1', key: 'box4_item1' },
+      { id: 'box4-item2', key: 'box4_item2' },
+      { id: 'box4-item3', key: 'box4_item3' },
+      { id: 'box4-item4', key: 'box4_item4' },
+      { id: 'box5-header', key: 'box5_header' },
+      { id: 'box5-subheader', key: 'box5_subheader' },
+      { id: 'box5-item1', key: 'box5_item1' },
+      { id: 'box5-item2', key: 'box5_item2' },
+      { id: 'box5-item3', key: 'box5_item3' },
+      { id: 'box5-item4', key: 'box5_item4' },
+      { id: 'box5-item5', key: 'box5_item5' },
+      { id: 'box5-item6', key: 'box5_item6' },
+      { id: 'box5-item7', key: 'box5_item7' },
+      { id: 'price', key: 'price' },
+      { id: 'price-note', key: 'price_note' }
+    ];
 
-    // Set price based on language-to-country mapping
-    const country = languageToCountry[lang];
-    document.getElementById('price').textContent = `desde ${compactPrices[country] || '17.990,00 €'} (IVA incluido)`;
-    document.getElementById('price-note').textContent = translations[lang].price_note;
+    elements.forEach(({ id, key }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        if (id === 'price') {
+          const country = languageToCountry[lang];
+          element.textContent = `${translations[lang].price_prefix} ${compactPrices[country] || '17.990,00 €'} ${translations[lang].price_suffix}`;
+        } else {
+          element.textContent = translations[lang][key];
+        }
+      } else {
+        console.error(`Element with ID '${id}' not found in the DOM.`);
+      }
+    });
 
-    document.documentElement.lang = lang; // Update HTML lang attribute
+    document.documentElement.lang = lang;
   }
 
-  // Initialize page with detected language after DOM is loaded
-  document.addEventListener('DOMContentLoaded', function() {
+  // Ensure DOM is fully loaded before setting language
+  function initializeLanguage() {
     const detectedLang = detectBrowserLanguage();
     setLanguage(detectedLang);
-  });
+  }
+
+  // Use both DOMContentLoaded and load for maximum compatibility
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeLanguage);
+    window.addEventListener('load', initializeLanguage);
+  } else {
+    initializeLanguage();
+  }
 </script>
 </body>
 </html>
