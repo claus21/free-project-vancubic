@@ -19,8 +19,14 @@
       font-style: normal;
       font-display: swap;
     }
-
-    :root {
+        @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Bd.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+    : root {
       --font-sm: 0.95rem;
       --font-md: 1.2rem;
       --font-lg: 1.5rem;
@@ -291,7 +297,7 @@
   </div>
   <div>
     <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_1_lLY.png" alt="Adventure Bundle Image">
-    <h2 class="price" id="price">desde €17.990 (IVA incluido)</h2>
+    <h2 class="price" id="price">desde <span style="font-weight: 200;">  €17.990 (IVA incluido)</h2>
     <p id="price-note">*Transporte no incluido.</p>
   </div>
 </div>
@@ -595,7 +601,7 @@
       if (element) {
         if (id === 'price') {
           const country = languageToCountry[lang];
-          element.textContent = `${translations[lang].price_prefix} ${compactPrices[country] || '17.990,00 €'} ${translations[lang].price_suffix}`;
+          element.textContent = `${translations[lang].price_prefix} <span style="font-weight: 200;"> ${compactPrices[country] || '17.990,00 €'} ${translations[lang].price_suffix}`;
         } else {
           element.textContent = translations[lang][key];
         }
