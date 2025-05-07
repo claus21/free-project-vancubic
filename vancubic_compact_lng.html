@@ -297,7 +297,7 @@
   </div>
   <div>
     <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_1_lLY.png" alt="Adventure Bundle Image">
-    <h2 class="price" id="price">desde <span style="font-weight: 200;">  €17.990 (IVA incluido)</h2>
+    <h2 class="price" id="price">desde €17.990 (IVA incluido)</h2>
     <p id="price-note">*Transporte no incluido.</p>
   </div>
 </div>
@@ -602,7 +602,7 @@
       if (element) {
         if (id === 'price') {
           const country = languageToCountry[lang];
-          element.innerHTML = `${translations[lang].price_prefix} <span style="font-weight: 200;">${compactPrices[country] || '17.990,00 €'}</span> ${translations[lang].price_suffix}`;
+          element.innerHTML = `${translations[lang].price_prefix} ${compactPrices[country] || '17.990,00 €'}</span> ${translations[lang].price_suffix}`;
         } else {
           element.textContent = translations[lang][key];
         }
