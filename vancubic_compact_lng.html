@@ -596,12 +596,13 @@
       { id: 'price-note', key: 'price_note' }
     ];
 
+    
     elements.forEach(({ id, key }) => {
       const element = document.getElementById(id);
       if (element) {
         if (id === 'price') {
           const country = languageToCountry[lang];
-          element.textContent = `${translations[lang].price_prefix} <span style="font-weight: 200;"> ${compactPrices[country] || '17.990,00 €'} ${translations[lang].price_suffix}`;
+          element.innerHTML = `${translations[lang].price_prefix} <span style="font-weight: 200;">${compactPrices[country] || '17.990,00 €'}</span> ${translations[lang].price_suffix}`;
         } else {
           element.textContent = translations[lang][key];
         }
