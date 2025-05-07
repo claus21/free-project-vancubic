@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VanCubic Landing Page</title>
+  <style>
+    /* ===== Typography ===== */
+    @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Lt.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Rg.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --font-sm: 0.95rem;    /* Body text */
+      --font-md: 1rem;       /* Checklist items */
+      --font-lg: 1.5rem;     /* h3, banner text */
+      --font-xl: 2rem;       /* h2 */
+      --font-price: 1.75rem; /* Price */
+      --color-text: #333;
+      --color-bg-module: #fff;
+      --color-bg-extras: #bcbeb8;
+    }
+
+    body {
+      font-family: 'FuturaNowHeadline', Arial, sans-serif;
+      font-weight: 300;
+      color: var(--color-text);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    h2 {
+      font-size: var(--font-xl);
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    h3 {
+      font-size: var(--font-lg);
+      font-weight: 700;
+      margin: 15px 0 10px;
+    }
+
+    h4 {
+      font-size: var(--font-lg);
+      font-style: italic;
+      font-weight: 500;
+      margin: 0;
+      padding-left: 15px;
+    }
+
+    /* ===== Shared Styles ===== */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    .checklist li {
+      font-size: var(--font-md);
+      margin-bottom: 6px;
+    }
+
+    .checklist .checked::before {
+      content: "✅";
+      margin-right: 6px;
+    }
+
+    .checklist .unchecked::before {
+      content: "⬜";
+      margin-right: 6px;
+    }
+
+    .module-img {
+      width: 280px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-top: 10px;
+    }
+
+    /* Specific styling for Cocina / Baño image on desktop */
+    .module-img[src*="5_eId.png"] {
+      padding-top: 30%;
+    }
+
+    /* ===== Banner ===== */
+    .banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #bcbeb8;
+      border: 2px solid #ddd;
+      border-radius: 25px;
+      padding: 60px 20px 20px 50px;
+      max-width: 1200px;
+      margin: 50px auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .banner img {
+      width: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .banner-text {
+      flex: 1;
+      margin-left: 15px;
+    }
+
+    /* ===== Module ===== */
+    .module {
+      background-color: var(--color-bg-module);
+      border-radius: 15px;
+      padding: 20px 30px 0px 40px;
+      max-width: 1100px;
+      margin: 20px auto;
+      box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .section-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== Extras Module ===== */
+    .new-module {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      background-color: #bcbeb8;
+      border: none;
+      padding: 20px 30px 0px 30px;
+      max-width: 1200px;
+      margin: 0px auto;
+      box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+    }
+    .new-module .new-module-content {
+      flex: 1;
+      margin-right: 20px;
+      padding: 20px, 20px, 0px, 20px;
+      background-color: #bcbeb8;
+      text-align: left;
+    }
+
+    .new-module .price {
+      font-size: var(--font-price);
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    /* ===== Mobile Styles ===== */
+    @media (max-width: 600px) {
+      :root {
+        --font-sm: 0.9rem;
+        --font-md: 0.95rem;
+        --font-lg: 1.2rem;
+        --font-xl: 1.5rem;
+        --font-price: 1.5rem;
+      }
+
+      .banner, .module, .new-module {
+        margin: 15px;
+        padding: 15px;
+      }
+
+      .banner, .new-module {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .banner img, .module-img, .new-module .module-img {
+        width: 100%;
+        max-width: 220px;
+        margin: 10px auto;
+      }
+
+      /* Remove padding for Cocina / Baño image on mobile */
+      .module-img[src*="5_eId.png"] {
+        padding-top: 0;
+      }
+
+      .banner-text {
+        margin: 0;
+        padding: 0 10px;
+      }
+
+      .banner-text h4 {
+        padding-left: 10px;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .new-module-content {
+        margin-right: 0;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="banner">
+  <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_1_lLY.png" alt="Banner Image">
+  <div class="banner-text">
+    <h4>Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h4>
+  </div>
+</div>
+
+<div class="module">
+  <div class="section">
+    <div class="section-text">
+      <h3>Los Módulos VanCubic Basic vienen con el siguiente equipamiento de serie:</h3>
+      <ul class="checklist">
+        <li class="checked">Puertas de aluminio + cristal</li>
+        <li class="checked">Suelo tarima vinílica color madera</li>
+        <li class="checked">Paredes y techo con aislamiento térmico</li>
+        <li class="checked">Instalación eléctrica con iluminación led</li>
+        <li class="checked">Estación de energía con baterías de litio 1000W con enchufes de USB - 12v-220v</li>
+        <li class="checked">Muebles de madera de chopo con HPL</li>
+      </ul>
+    </div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/sala_Vut.png" alt="Standard Equipment Image">
+  </div>
+  <div class="section">
+    <div class="section-text" >
+      <h3>Salón / Dormitorio</h3>
+      <ul class="checklist" style="margin-top: 10%;">
+        <li class="checked">Cama para adultos (1,20m. de ancho)</li>
+        <li class="checked">Arcón - sofá</li>
+        <li class="checked">Mesa flotante</li>
+        <li class="checked">Mueble alto encima del sofá</li>
+        <li class="checked">Armario de maletas</li>
+      </ul>
+    </div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/comedor_Gsr.png" alt="Salón / Dormitorio Image">
+  </div>
+  <div class="section">
+    <div class="section-text">
+      <h3>Cocina / Baño</h3>
+      <ul class="checklist">
+        <li class="checked">Mueble de cocina con puertas y cajones de chopo con HPL</li>
+        <li class="checked">Mueble alacena con hueco para cestas</li>
+        <li class="checked">Frente de la encimera imitación de azulejo</li>
+        <li class="checked">Encimera de pino</li>
+        <li class="checked">Cocina de gas portátil</li>
+        <li class="checked">Fregadero de acero inoxidable</li>
+        <li class="checked">Grifo de agua autónomo</li>
+        <li class="checked">Nevera eléctrica compresor 60L.</li>
+        <li class="checked">Depósitos de aguas 68L. limpias/ 54L. grises.</li>
+        <li class="checked">WC Químico</li>
+      </ul>
+      <h3>Ducha</h3>
+      <ul class="checklist">
+        <li class="checked">Mueble de ducha interior y exterior</li>
+        <li class="checked">Acabado puerta barrotes de pino</li>
+        <li class="checked">Grifo monomando 2 vías y telefonillo con pulsador</li>
+        <li class="checked">Cortinilla antisalpicaduras</li>
+      </ul>
+    </div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/5_eId.png" alt="Cocina / Baño Image">
+  </div>
+</div>
+
+<div class="new-module">
+  <div class="new-module-content">
+    <h2>Extras</h2>
+    <ul class="checklist">
+      <li class="unchecked">Litera de niño</li>
+      <li class="unchecked">Litera para dos adultos</li>
+      <li class="unchecked">Plataforma de instalación</li>
+      <li class="unchecked">Panel solar portátil 110w</li>
+      <li class="unchecked">Mosquitera</li>
+      <li class="unchecked">Calentador de agua portátil EcoFlow Delta 2 Max 2000W</li>
+    </ul>
+  </div>
+  <div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_1_lLY.png" alt="Adventure Bundle Image">
+    <p class="price">Desde <strong>€17.990</strong> (Iva incluido)</p>
+  </div>
+</div>
+</body>
+</html>
