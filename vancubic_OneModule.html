@@ -23,7 +23,7 @@
 
     :root {
       --font-sm: 0.95rem;    /* Body text */
-      --font-md: 1.2rem;       /* Checklist items */
+      --font-md: 1.2rem;     /* Checklist items */
       --font-lg: 1.5rem;     /* h3, banner text */
       --font-xl: 2rem;       /* h2 */
       --font-price: 1.75rem; /* Price */
@@ -90,12 +90,10 @@
       margin-top: 10px;
     }
 
-    /* Specific styling for Cocina / Baño image on desktop */
-    .module-img[src*="5_eId.png"] {
+    .module-img[src*="5_xFk.png"] {
       padding-top: 30%;
     }
 
-    /* ===== Banner ===== */
     .banner {
       display: flex;
       align-items: center;
@@ -120,7 +118,6 @@
       margin-left: 15px;
     }
 
-    /* ===== Module ===== */
     .module {
       background-color: var(--color-bg-module);
       border-radius: 15px;
@@ -142,7 +139,6 @@
       flex-direction: column;
     }
 
-    /* ===== Extras Module ===== */
     .new-module {
       display: flex;
       align-items: flex-start;
@@ -157,7 +153,7 @@
     .new-module .new-module-content {
       flex: 1;
       margin-right: 20px;
-      padding: 20px, 20px, 0px, 20px;
+      padding: 20px;
       background-color: #bcbeb8;
       text-align: left;
     }
@@ -168,7 +164,6 @@
       margin: 10px 0;
     }
 
-    /* ===== Mobile Styles ===== */
     @media (max-width: 600px) {
       :root {
         --font-sm: 0.9rem;
@@ -191,11 +186,10 @@
       .banner img, .module-img, .new-module .module-img {
         width: 100%;
         max-width: 280px;
-        margin: 30px 2-px 0px 0px;
+        margin: 30px 0px 0px 0px;
       }
 
-      /* Remove padding for Cocina / Baño image on mobile */
-      .module-img[src*="5_eId.png"] {
+      .module-img[src*="5_xFk.png"] {
         padding-top: 0;
       }
 
@@ -305,7 +299,7 @@
 </div>
 
 <script>
-  // Language content dictionary
+  // Language content dictionary with translations
   const translations = {
     es: {
       header: "Incluye todo lo que necesitas.",
@@ -352,7 +346,7 @@
     },
     pl: {
       header: "Zawiera wszystko, czego potrzebujesz.",
-      box1_header: "Moduł VanCubic Compact jest wyposażone w standardzie w:",
+      box1_header: "Moduł VanCubic Compact jest wyposażony w standardzie w:",
       box1_item1: "Drzwi aluminiowe + szklane",
       box1_item2: "Podłoga winylowa w kolorze drewna",
       box1_item3: "Ściany i sufit z izolacją termiczną",
@@ -361,7 +355,7 @@
       box1_item6: "Meble z drewna topolowego pokryte HPL",
       box2_header: "Salon / Sypialnia",
       box2_item1: "Łóżko dla dorosłych (szerokość 1,20 m)",
-      box2_item2: "Skrzynia - sofą",
+      box2_item2: "Skrzynia - sofa",
       box2_item3: "Stół wiszący",
       box2_item4: "Szafka wisząca nad sofą",
       box2_item5: "Szafa na walizki",
@@ -390,8 +384,8 @@
       box5_item5: "Siatka przeciw owadom",
       box5_item6: "Przenośny podgrzewacz wody",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "od € 17.990 (zv",
-      price_note: "*Transport nie jest zawarty w cenie"
+      price: "od €18.290 (z VAT)",
+      price_note: "*Transport nie jest zawarty w cenie."
     },
     en: {
       header: "Includes everything you need.",
@@ -416,7 +410,7 @@
       box3_item5: "Portable gas stove",
       box3_item6: "Stainless steel sink",
       box3_item7: "Self-contained faucet",
-      box3_item8: "Self-contained faucet",
+      box3_item8: "60L compressor electric fridge",
       box3_item9: "Water tanks: 68L fresh / 54L grey",
       box3_item10: "Chemical toilet",
       box4_header: "Shower",
@@ -433,13 +427,13 @@
       box5_item5: "Mosquito net",
       box5_item6: "Portable water heater",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "from €19.500 (VAT included)",
-      price_note: "*Transport included."
+      price: "from €17.990 (VAT included)",
+      price_note: "*Transport not included."
     },
     fr: {
       header: "Inclut tout ce dont vous avez besoin.",
       box1_header: "Les modules Compact VanCubic sont livrés avec l'équipement standard suivant:",
-      box1_item1: "Portes aluminium et verre (arrière et latérale) Parquet imitation bois",
+      box1_item1: "Portes aluminium et verre (arrière et latérale)",
       box1_item2: "Parquet imitation bois",
       box1_item3: "Murs et plafond avec isolation thermique",
       box1_item4: "Installation électrique avec éclairage LED",
@@ -459,8 +453,8 @@
       box3_item5: "Cuisinière à gaz portable",
       box3_item6: "Évier (acier inoxydable)",
       box3_item7: "Robinet automatique",
-      box3_item8: "Frigo compresseur de 60L.",
-      box3_item9: "Réservoirs d'eau: 80L. eau propre/66L. eau grise",
+      box3_item8: "Frigo compresseur de 60L",
+      box3_item9: "Réservoirs d'eau: 80L eau propre/66L eau grise",
       box3_item10: "WC chimiques",
       box4_header: "Douche",
       box4_item1: "Meuble de douche intérieur et extérieur",
@@ -468,27 +462,27 @@
       box4_item3: "Mitigeur de douche deux voies et douchette à bouton pression",
       box4_item4: "Rideau de douche",
       box5_header: "En option...",
-      box5_subheader: "Personnalisez votre VanCubic en choisissant les options dont vous avez besoin",
+      box5_subheader: "Personnalisez votre VanCubic en choisissant les options dont vous avez besoin.",
       box5_item1: "Lit à étage enfant",
       box5_item2: "Lit à étage pour deux adultes",
       box5_item3: "Plateforme d'installation",
-      box5_item4: "Panneau solaire portable 110w",
+      box5_item4: "Panneau solaire portable 110W",
       box5_item5: "Moustiquaire",
-      box5_item6: "Chauffe eau portatif",
+      box5_item6: "Chauffe-eau portatif",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "À partir de € 19.500 (TVA incluse)",
-      price_note: "*Transport inclus"
+      price: "À partir de €19.990 (TVA incluse)",
+      price_note: "*Transport inclus."
     },
     nl: {
       header: "Bevat alles wat je nodig hebt.",
-      box1_header: "De VanCubic Loft module is uitgerust met:",
+      box1_header: "De VanCubic Compact module is uitgerust met:",
       box1_item1: "Aluminium + glazen deuren (achter- en zijkant)",
       box1_item2: "Vloer met houtlook",
       box1_item3: "Wanden en plafond met thermische isolatie",
       box1_item4: "Elektrische installatie met LED-verlichting",
-      box1_item5: "Energiecentrale met 1000W lithium batterijen met USB-12v 220v aansluiting",
+      box1_item5: "Energiecentrale met 1000W lithium batterijen met USB-12V-220V aansluiting",
       box1_item6: "Meubelen van populierenhout",
-      box2_header: "Woonkamer / slaapkamer",
+      box2_header: "Woonkamer / Slaapkamer",
       box2_item1: "Bed van 120 cm breed en lengte 175/190 cm",
       box2_item2: "Slaapbank",
       box2_item3: "Zwevende tafel",
@@ -506,7 +500,7 @@
       box3_item9: "Watertanks 68L schoonwater/54L vuilwater",
       box3_item10: "Chemisch toilet (draagbaar)",
       box4_header: "Douche",
-      box4_item1: "Binnen- en сегодняшние",
+      box4_item1: "Binnen- en buitendouche",
       box4_item2: "Dennenhout design-wandpaneel",
       box4_item3: "Mengkraan warm/koud en drukknop douchekop",
       box4_item4: "Douchebak gordijn",
@@ -519,9 +513,30 @@
       box5_item5: "Klamboe",
       box5_item6: "Draagbare waterverwarmer",
       box5_item7: "EcoFlow Delta 2 Max 2000W",
-      price: "Vanaf € 19.990 (Incl. 21% BTW)",
-      price_note: "*Vervoer inbegrepen"
+      price: "Vanaf €19.990 (Incl. 21% BTW)",
+      price_note: "*Vervoer inbegrepen."
     }
+  };
+
+  // Price data for Compact model by country
+  const compactPrices = {
+    'España': '17.990,00 €',
+    'Portugal': '17.990,00 €',
+    'Francia': '19.990,00 €',
+    'Países Bajos': '19.990,00 €',
+    'Bélgica': '19.990,00 €',
+    'Luxemburgo': '19.590,00 €',
+    'Suiza': '19.500,00 €',
+    'Polonia': '18.290,00 €'
+  };
+
+  // Language to country mapping for price selection
+  const languageToCountry = {
+    es: 'España',
+    pl: 'Polonia',
+    fr: 'Francia',
+    nl: 'Países Bajos',
+    en: 'España' // Default to Spain for English
   };
 
   // Detect browser language
@@ -531,7 +546,7 @@
     return translations[langCode] ? langCode : 'es'; // Fallback to Spanish
   }
 
-  // Set language based on browser
+  // Set language and price based on browser language
   function setLanguage(lang) {
     document.getElementById('header').textContent = translations[lang].header;
     document.getElementById('box1-header').textContent = translations[lang].box1_header;
@@ -571,17 +586,21 @@
     document.getElementById('box5-item4').textContent = translations[lang].box5_item4;
     document.getElementById('box5-item5').textContent = translations[lang].box5_item5;
     document.getElementById('box5-item6').textContent = translations[lang].box5_item6;
-    document.getElementById('box5-item7').textContent | translations[lang].box5_item7;
-    document.getElementById('price').textContent = translations[lang].price;
+    document.getElementById('box5-item7').textContent = translations[lang].box5_item7;
+
+    // Set price based on language-to-country mapping
+    const country = languageToCountry[lang];
+    document.getElementById('price').textContent = `desde ${compactPrices[country] || '17.990,00 €'} (IVA incluido)`;
     document.getElementById('price-note').textContent = translations[lang].price_note;
+
     document.documentElement.lang = lang; // Update HTML lang attribute
   }
 
-  // Initialize page with detected language
-  window.onload = function() {
+  // Initialize page with detected language after DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
     const detectedLang = detectBrowserLanguage();
     setLanguage(detectedLang);
-  };
+  });
 </script>
 </body>
 </html>
