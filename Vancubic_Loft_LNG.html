@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VanCubic Landing Page</title>
+  <style>
+    @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Lt.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Rg.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --font-sm: 0.95rem;
+      --font-md: 1.2rem;
+      --font-lg: 1.5rem;
+      --font-xl: 2rem;
+      --font-price: 1.75rem;
+      --color-text: #333;
+      --color-bg-module: #fff;
+      --color-bg-extras: #bcbeb8;
+    }
+
+    body {
+      font-family: 'FuturaNowHeadline', Arial, sans-serif;
+      font-weight: 300;
+      color: var(--color-text);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    h2 {
+      font-size: var(--font-xl);
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    h3 {
+      font-size: var(--font-lg);
+      font-weight: 700;
+      margin: 15px 0 10px;
+    }
+
+    h4 {
+      font-size: var(--font-lg);
+      font-style: italic;
+      font-weight: 500;
+      margin: 10px 0;
+      padding-left: 15px;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    .checklist li {
+      font-size: var(--font-md);
+      margin-bottom: 6px;
+    }
+
+    .checklist .checked::before {
+      content: "✅";
+      margin-right: 6px;
+    }
+
+    .checklist .unchecked::before {
+      content: "⬜";
+      margin-right: 6px;
+    }
+
+    .module-img {
+      width: 450px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-top: 10px;
+      padding-right: 20px;
+    }
+
+    .module-img[src*="5_xFk.png"] {
+      padding-top: 30%;
+    }
+
+    .banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      background-color: #bcbeb8;
+      border: 2px solid #ddd;
+      border-radius: 25px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 50px auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      gap: 20px;
+    }
+
+    .banner-column-1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 10% 0% 0 0;
+    }
+
+    .banner-column-2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: -40px;
+    }
+
+    .banner img {
+      width: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .module {
+      background-color: var(--color-bg-module);
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 20px auto;
+      box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .section-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .new-module {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #bcbeb8;
+      border: none;
+      padding: 20px 30px;
+      max-width: 1200px;
+      margin: 20px auto;
+      box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+    }
+
+    .new-module .new-module-content {
+      flex: 1;
+      margin-right: 20px;
+      padding: 20px;
+      background-color: #bcbeb8;
+      text-align: left;
+    }
+
+    .new-module > div:last-child {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .new-module > div:last-child img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      margin-left: 50px;
+    }
+
+    .new-module .price {
+      font-size: var(--font-price);
+      font-weight: 700;
+      text-align: left;
+      margin: 10px 0;
+    }
+
+    .new-module .price-note {
+      text-align: left;
+      margin: 5px 0;
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --font-sm: 0.9rem;
+        --font-md: 1rem;
+        --font-lg: 1.2rem;
+        --font-xl: 1.5rem;
+        --font-price: 1.5rem;
+      }
+
+      .banner, .module, .new-module {
+        margin: 15px;
+        padding: 15px;
+      }
+
+      .banner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .banner-column-1, .banner-column-2 {
+        width: 100%;
+      }
+
+      .banner img {
+        width: 100%;
+        max-width: 280px;
+        margin: -20px 0px 0px 0px;
+      }
+
+      .banner h4 {
+        padding-left: 0;
+      }
+
+      .module, .new-module {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .banner img, .module-img, .new-module > div:last-child img {
+        width: 100%;
+        max-width: 280px;
+        margin: 10px 0px;
+      }
+
+      .module-img {
+        padding-top: 0;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .new-module-content {
+        margin-right: 0;
+        padding: 0 10px;
+      }
+
+      .new-module > div:last-child {
+        align-items: center;
+        text-align: center;
+      }
+
+      .new-module .price, .new-module .price-note {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="banner">
+  <div class="banner-column-1">
+    <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_4_Xad.png" alt="Banner Image 1">
+    <h2 id="header" style="font-size: var(--font-xl);">Incluye todo lo que necesitas.</h2>
+  </div>
+  <div class="banner-column-2">
+    <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/1_HMW.png" alt="Banner Image 2">
+  </div>
+</div>
+
+<div class="module">
+  <div class="section">
+    <div class="section-text">
+      <h3 id="box1-header">Los Módulos VanCubic Loft vienen con el siguiente equipamiento de serie:</h3>
+      <ul class="checklist">
+        <li class="checked" id="box1-item1">Puertas de aluminio + cristal</li>
+        <li class="checked" id="box1-item2">Suelo tarima vinílica color madera</li>
+        <li class="checked" id="box1-item3">Paredes y techo con aislamiento térmico</li>
+        <li class="checked" id="box1-item4">Instalación eléctrica con iluminación led</li>
+        <li class="checked" id="box1-item5">Estación de energía con baterías de litio 1000W con enchufes de USB - 12v-220v</li>
+        <li class="checked" id="box1-item6">Muebles de madera de chopo con HPL</li>
+        <li class="checked" id="box1-item7">Estor separador de ambientes</li>
+      </ul>
+    </div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/2_26M.png" alt="Standard Equipment Image">
+  </div>
+  <div class="section">
+    <div class="section-text">
+      <h3 id="box2-header">Salón / Dormitorio</h3>
+      <ul class="checklist" style="margin-top: 3%;">
+        <li class="checked" id="box2-item1">Cama para adultos (1,20m. de ancho)</li>
+        <li class="checked" id="box2-item2">Arcón - sofá</li>
+        <li class="checked" id="box2-item3">Mesa flotante</li>
+        <li class="checked" id="box2-item4">Mueble alto encima del sofá</li>
+        <li class="checked" id="box2-item5">Armario de maletas</li>
+      </ul>
+    </div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/3_GAI.png" alt="Salón / Dormitorio Image">
+  </div>
+  <div class="section">
+    <div class="section-text">
+      <h3 id="box3-header">Cocina / Baño</h3>
+      <ul class="checklist">
+        <li class="checked" id="box3-item1">Mueble de cocina con puertas y cajones de chopo con HPL</li>
+        <li class="checked" id="box3-item2">Mueble alacena con hueco para cestas</li>
+        <li class="checked" id="box3-item3">Frente de la encimera imitación de azulejo</li>
+        <li class="checked" id="box3-item4">Encimera de pino</li>
+        <li class="checked" id="box3-item5">Cocina de gas portátil</li>
+        <li class="checked" id="box3-item6">Fregadero inoxidable</li>
+        <li class="checked" id="box3-item7">Grifo autónomo</li>
+        <li class="checked" id="box3-item8">Nevera eléctrica compresor 60L.</li>
+        <li class="checked" id="box3-item9">Depósitos de aguas 80L. limpias/66L. grises.</li>
+        <li class="checked" id="box3-item10">WC Químico</li>
+      </ul>
+    </div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vcb_loft_espdf_gBw.png" alt="Cocina / Baño Image">
+  </div>
+  <div class="section">
+    <div class="section-text">
+      <h3 id="box4-header">Ducha</h3>
+      <ul class="checklist">
+        <li class="checked" id="box4-item1">Mueble de ducha interior y exterior</li>
+        <li class="checked" id="box4-item2">Acabado puerta barrotes de pino</li>
+        <li class="checked" id="box4-item3">Grifo monomando 2 vías y telefonillo con pulsador</li>
+        <li class="checked" id="box4-item4">Cortinilla antisalpicaduras</li>
+        <li class="checked" id="box4-item5">Calentador de agua portátil</li>
+      </ul>
+    </div>
+    <img class="module-img" src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/4_rCW.png" alt="Cocina / Baño Image">
+  </div>
+</div>
+
+<div class="new-module">
+  <div class="new-module-content">
+    <h3 id="box5-subheader">Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h3>
+    <ul class="checklist">
+      <li class="unchecked" id="box5-item1">Litera de niño</li>
+      <li class="unchecked" id="box5-item2">Litera para dos adultos</li>
+      <li class="unchecked" id="box5-item3">Armario con estantes en el lateral</li>
+      <li class="unchecked" id="box5-item4">Plataformas de instalación (2 uds.)</li>
+      <li class="unchecked" id="box5-item5">Panel solar portátil 110w</li>
+      <li class="unchecked" id="box5-item6">Mosquitera</li>
+      <li class="unchecked" id="box5-item7">EcoFlow Delta 2 Max 2000W</li>
+    </ul>
+  </div>
+  <div>
+    <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/5_iME.png" alt="Adventure Bundle Image 1">
+    <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_4_Xad.png" alt="Adventure Bundle Image 2">
+    <h2 class="price" id="price">desde €20.990 (IVA incluido)</h2>
+    <p class="price-note" id="price-note">*Transporte no incluido.</p>
+  </div>
+</div>
+
+<script>
+  const translations = {
+    es: {
+      header: "Incluye todo lo que necesitas.",
+      box1_header: "Los Módulos VanCubic Loft vienen con el siguiente equipamiento de serie:",
+      box1_item1: "Puertas de aluminio + cristal",
+      box1_item2: "Suelo tarima vinílica color madera",
+      box1_item3: "Paredes y techo con aislamiento térmico",
+      box1_item4: "Instalación eléctrica con iluminación led",
+      box1_item5: "Estación de energía con baterías de litio 1000W con enchufes de USB - 12v-220v",
+      box1_item6: "Muebles de madera de chopo con HPL",
+      box1_item7: "Estor separador de ambientes",
+      box2_header: "Salón / Dormitorio",
+      box2_item1: "Cama para adultos (1,20m. de ancho)",
+      box2_item2: "Arcón - sofá",
+      box2_item3: "Mesa flotante",
+      box2_item4: "Mueble alto encima del sofá",
+      box2_item5: "Armario de maletas",
+      box3_header: "Cocina / Baño",
+      box3_item1: "Mueble de cocina con puertas y cajones de chopo con HPL",
+      box3_item2: "Mueble alacena con hueco para cestas",
+      box3_item3: "Frente de la encimera imitación de azulejo",
+      box3_item4: "Encimera de pino",
+      box3_item5: "Cocina de gas portátil",
+      box3_item6: "Fregadero inoxidable",
+      box3_item7: "Grifo autónomo",
+      box3_item8: "Nevera eléctrica compresor 60L.",
+      box3_item9: "Depósitos de aguas 80L. limpias/66L. grises.",
+      box3_item10: "WC Químico",
+      box4_header: "Ducha",
+      box4_item1: "Mueble de ducha interior y exterior",
+      box4_item2: "Acabado puerta barrotes de pino",
+      box4_item3: "Grifo monomando 2 vías y telefonillo con pulsador",
+      box4_item4: "Cortinilla antisalpicaduras",
+      box4_item5: "Calentador de agua portátil",
+      box5_subheader: "Monta el VanCubic a tu gusto eligiendo los extras que necesites.",
+      box5_item1: "Litera de niño",
+      box5_item2: "Litera para dos adultos",
+      box5_item3: "Armario con estantes en el lateral",
+      box5_item4: "Plataformas de instalación (2 uds.)",
+      box5_item5: "Panel solar portátil 110w",
+      box5_item6: "Mosquitera",
+      box5_item7: "EcoFlow Delta 2 Max 2000W",
+      price_prefix: "desde",
+      price_suffix: "(IVA incluido)",
+      price_note: "*Transporte no incluido."
+    },
+    pl: {
+      header: "Zawiera wszystko, czego potrzebujesz.",
+      box1_header: "Moduly VanCubic Loft są wyposażone w standardzie w:",
+      box1_item1: "Drzwi aluminiowe + szklane",
+      box1_item2: "Podłoga winylowa w kolorze drewna",
+      box1_item3: "Ściany i sufit z izolacją termiczną",
+      box1_item4: "Instalacja elektryczna z oświetleniem LED",
+      box1_item5: "Stacja zasilania z akumulatorami litowymi 1000W z gniazdami USB-12V-220V",
+      box1_item6: "Meble z drewna topolowego pokryte HPL",
+      box1_item7: "Roleta oddzielająca przestrzenie",
+      box2_header: "Salon / Sypialnia",
+      box2_item1: "Łóżko dla dorosłych (szerokość 1,20 m)",
+      box2_item2: "Skrzynia - sofa",
+      box2_item3: "Stół wiszący",
+      box2_item4: "Szafka wisząca nad sofą",
+      box2_item5: "Szafa na walizki",
+      box3_header: "Kuchnia / Łazienka",
+      box3_item1: "Szafka kuchenna z drzwiczkami i szufladami z drewna topolowego pokrytego HPL",
+      box3_item2: "Szafka-spiżarnia z miejscem na kosze",
+      box3_item3: "Ściana nad blatem w stylu płytek ceramicznych",
+      box3_item4: "Blat z drewna sosnowego",
+      box3_item5: "Przenośna kuchenka gazowa",
+      box3_item6: "Zlewozmywak ze stali nierdzewnej",
+      box3_item7: "Niezależna bateria kuchenna",
+      box3_item8: "Elektryczna lodówka kompresorowa 60L",
+      box3_item9: "Zbiorniki na wodę: 80L czysta / 66L szara",
+      box3_item10: "Toaleta chemiczna",
+      box4_header: "Prysznic",
+      box4_item1: "Szafka prysznicowa do użytku wewnętrznego i zewnętrznego",
+      box4_item2: "Wykończenie drzwi listwami z drewna sosnowego",
+      box4_item3: "Bateria mieszająca 2-drogowa z rączką prysznicową i przyciskiem",
+      box4_item4: "Zasłonka przeciwbryzgowa",
+      box4_item5: "Przenośny podgrzewacz wody",
+      box5_subheader: "Skonfiguruj VanCubic według własnych potrzeb, wybierając potrzebne dodatki.",
+      box5_item1: "Łóżko piętrowe dla dziecka",
+      box5_item2: "Łóżko piętrowe dla dwóch dorosłych",
+      box5_item3: "Szafa z półkami z boku",
+      box5_item4: "Platformy montażowe (2 szt.)",
+      box5_item5: "Przenośny panel słoneczny 110W",
+      box5_item6: "Siatka przeciw owadom",
+      box5_item7: "EcoFlow Delta 2 Max 2000W",
+      price_prefix: "od",
+      price_suffix: "(z VAT)",
+      price_note: "*Transport nie jest zawarty w cenie."
+    },
+    en: {
+      header: "Includes everything you need.",
+      box1_header: "VanCubic Loft Modules come with the following standard equipment:",
+      box1_item1: "Aluminum and glass doors",
+      box1_item2: "Wood-look vinyl plank flooring",
+      box1_item3: "Walls and ceiling with thermal insulation",
+      box1_item4: "Electrical installation with LED lighting",
+      box1_item5: "Power station with 1000W lithium batteries and USB-12V-220V outlets",
+      box1_item6: "Poplar wood furniture with HPL finish",
+      box1_item7: "Room divider blind",
+      box2_header: "Living Room / Bedroom",
+      box2_item1: "Adult bed (1.20m wide)",
+      box2_item2: "Sofa chest",
+      box2_item3: "Floating table",
+      box2_item4: "Overhead cabinet above the sofa",
+      box2_item5: "Luggage wardrobe",
+      box3_header: "Kitchen / Bathroom",
+      box3_item1: "Kitchen cabinet with poplar wood doors and drawers with HPL finish",
+      box3_item2: "Pantry cabinet with basket compartments",
+      box3_item3: "Backsplash with tile-look finish",
+      box3_item4: "Pine countertop",
+      box3_item5: "Portable gas stove",
+      box3_item6: "Stainless steel sink",
+      box3_item7: "Self-contained faucet",
+      box3_item8: "60L compressor electric fridge",
+      box3_item9: "Water tanks: 80L fresh / 66L grey",
+      box3_item10: "Chemical toilet",
+      box4_header: "Shower",
+      box4_item1: "Indoor and outdoor shower unit",
+      box4_item2: "Door with pine slat finish",
+      box4_item3: "Dual-way mixer tap with handheld shower and push-button",
+      box4_item4: "Splash-proof curtain",
+      box4_item5: "Portable water heater",
+      box5_subheader: "Customize your VanCubic to your liking by choosing the extras you need.",
+      box5_item1: "Child bunk bed",
+      box5_item2: "Bunk bed for two adults",
+      box5_item3: "Side cabinet with shelves",
+      box5_item4: "Installation platforms (2 units)",
+      box5_item5: "110W portable solar panel",
+      box5_item6: "Mosquito net",
+      box5_item7: "EcoFlow Delta 2 Max 2000W",
+      price_prefix: "from",
+      price_suffix: "(VAT included)",
+      price_note: "*Transport included."
+    },
+    fr: {
+      header: "Inclut tout ce dont vous avez besoin.",
+      box1_header: "Les modules Loft VanCubic sont livrés avec l'équipement standard suivant:",
+      box1_item1: "Portes aluminium et verre (arrière et latérale)",
+      box1_item2: "Parquet imitation bois",
+      box1_item3: "Murs et plafond avec isolation thermique",
+      box1_item4: "Installation électrique avec éclairage LED",
+      box1_item5: "Centrale électrique avec batterie en lithium 1000W et prise USB-12V-220V",
+      box1_item6: "Meubles en bois",
+      box1_item7: "Panneau séparateur de pièce",
+      box2_header: "Salon / Chambre",
+      box2_item1: "Lit pour deux adultes de 1,2m de large",
+      box2_item2: "Canapé blanc",
+      box2_item3: "Table dépliante",
+      box2_item4: "Armoire au-dessus du canapé",
+      box2_item5: "Armoire à bagages",
+      box3_header: "Cuisine / Salle de bain",
+      box3_item1: "Meuble de cuisine avec portes et tiroirs en bois",
+      box3_item2: "Placard avec espaces de rangement",
+      box3_item3: "Façade de cuisine imitation carreaux",
+      box3_item4: "Plan de travail en pin",
+      box3_item5: "Cuisinière à gaz portable",
+      box3_item6: "Évier (acier inoxydable)",
+      box3_item7: "Robinet automatique",
+      box3_item8: "Frigo compresseur de 60L",
+      box3_item9: "Réservoirs d'eau: 80L eau propre/66L eau grise",
+      box3_item10: "WC chimiques",
+      box4_header: "Douche",
+      box4_item1: "Meuble de douche intérieur et extérieur",
+      box4_item2: "Revêtement en lamelles de pin",
+      box4_item3: "Mitigeur de douche deux voies et douchette à bouton pression",
+      box4_item4: "Rideau de douche",
+      box4_item5: "Chauffe-eau de douche portable",
+      box5_subheader: "Personnalisez votre VanCubic en choisissant les options dont vous avez besoin.",
+      box5_item1: "Lit à étage enfant",
+      box5_item2: "Lit à étage pour deux adultes",
+      box5_item3: "Armoire avec étagères sur le côté",
+      box5_item4: "Plateformes d'installation (2 unités)",
+      box5_item5: "Panneau solaire portable 110W",
+      box5_item6: "Moustiquaire",
+      box5_item7: "EcoFlow Delta 2 Max 2000W",
+      price_prefix: "À partir de",
+      price_suffix: "(TVA incluse)",
+      price_note: "*Transport inclus."
+    },
+    nl: {
+      header: "Bevat alles wat je nodig hebt.",
+      box1_header: "De VanCubic Loft module is uitgerust met:",
+      box1_item1: "Aluminium + glazen deuren (achter- en zijkant)",
+      box1_item2: "Vloer met houtlook",
+      box1_item3: "Wanden en plafond met thermische isolatie",
+      box1_item4: "Elektrische installatie met LED-verlichting",
+      box1_item5: "Energiecentrale met 1000W lithium batterijen met USB-12V-220V aansluiting",
+      box1_item6: "Meubelen van populierenhout",
+      box1_item7: "Scheidingswand rolgordijn",
+      box2_header: "Woonkamer / Slaapkamer",
+      box2_item1: "Bed van 120 cm breed en lengte 175/190 cm",
+      box2_item2: "Slaapbank",
+      box2_item3: "Zwevende tafel",
+      box2_item4: "Hoge kast",
+      box2_item5: "Opbergruimte onder bank",
+      box3_header: "Keuken / Badkamer",
+      box3_item1: "Keukenblok met populierenhouten deuren en laden met HPL",
+      box3_item2: "Bovenkast met uitsparing voor manden",
+      box3_item3: "Keuken achterwand met imitatietegel",
+      box3_item4: "Werkblad van grenenhout",
+      box3_item5: "Draagbare gasfornuis 1-pit",
+      box3_item6: "RVS-spoelbak",
+      box3_item7: "Automatische kraan",
+      box3_item8: "Zwarte ko macaferri 60L",
+      box3_item9: "Watertanks 80L schoonwater/66L vuilwater",
+      box3_item10: "Chemisch toilet (draagbaar)",
+      box4_header: "Douche",
+      box4_item1: "Binnen- en buitendouche",
+      box4_item2: "Dennenhout design-wandpaneel",
+      box4_item3: "Mengkraan warm/koud en drukknop douchekop",
+      box4_item4: "Douchebak gordijn",
+      box4_item5: "Draagbare waterverwarmer",
+      box5_subheader: "Stel de VanCubic naar eigen wens samen door de extra's te kiezen die je nodig hebt.",
+      box5_item1: "Stapelbed voor kinderen",
+      box5_item2: "Stapelbed voor twee volwassenen",
+      box5_item3: "Staande kast met planken voor de glazen zijdeur",
+      box5_item4: "Installatieplatform (2 stuks)",
+      box5_item5: "Draagbaar zonnepaneel 110W",
+      box5_item6: "Klamboe",
+      box5_item7: "EcoFlow Delta 2 Max 2000W",
+      price_prefix: "Vanaf",
+      price_suffix: "(Incl. 21% BTW)",
+      price_note: "*Vervoer inbegrepen."
+    }
+  };
+
+  const compactPrices = {
+    'España': '20.990,00 €',
+    'Portugal': '20.990,00 €',
+    'Francia': '22.990,00 €',
+    'Países Bajos': '23.490,00 €',
+    'Bélgica': '22.990,00 €',
+    'Luxemburgo': '22.590,00 €',
+    'Suiza': '22.500,00 €',
+    'Polonia': '20.990,00 €'
+  };
+
+  const languageToCountry = {
+    es: 'España',
+    pl: 'Polonia',
+    fr: 'Francia',
+    nl: 'Países Bajos',
+    en: 'España'
+  };
+
+  function detectBrowserLanguage() {
+    const userLang = navigator.language || navigator.userLanguage;
+    const langCode = userLang.split('-')[0];
+    return translations[langCode] ? langCode : 'es';
+  }
+
+  function setLanguage(lang) {
+    const elements = [
+      { id: 'header', key: 'header' },
+      { id: 'box1-header', key: 'box1_header' },
+      { id: 'box1-item1', key: 'box1_item1' },
+      { id: 'box1-item2', key: 'box1_item2' },
+      { id: 'box1-item3', key: 'box1_item3' },
+      { id: 'box1-item4', key: 'box1_item4' },
+      { id: 'box1-item5', key: 'box1_item5' },
+      { id: 'box1-item6', key: 'box1_item6' },
+      { id: 'box1-item7', key: 'box1_item7' },
+      { id: 'box2-header', key: 'box2_header' },
+      { id: 'box2-item1', key: 'box2_item1' },
+      { id: 'box2-item2', key: 'box2_item2' },
+      { id: 'box2-item3', key: 'box2_item3' },
+      { id: 'box2-item4', key: 'box2_item4' },
+      { id: 'box2-item5', key: 'box2_item5' },
+      { id: 'box3-header', key: 'box3_header' },
+      { id: 'box3-item1', key: 'box3_item1' },
+      { id: 'box3-item2', key: 'box3_item2' },
+      { id: 'box3-item3', key: 'box3_item3' },
+      { id: 'box3-item4', key: 'box3_item4' },
+      { id: 'box3-item5', key: 'box3_item5' },
+      { id: 'box3-item6', key: 'box3_item6' },
+      { id: 'box3-item7', key: 'box3_item7' },
+      { id: 'box3-item8', key: 'box3_item8' },
+      { id: 'box3-item9', key: 'box3_item9' },
+      { id: 'box3-item10', key: 'box3_item10' },
+      { id: 'box4-header', key: 'box4_header' },
+      { id: 'box4-item1', key: 'box4_item1' },
+      { id: 'box4-item2', key: 'box4_item2' },
+      { id: 'box4-item3', key: 'box4_item3' },
+      { id: 'box4-item4', key: 'box4_item4' },
+      { id: 'box4-item5', key: 'box4_item5' },
+      { id: 'box5-subheader', key: 'box5_subheader' },
+      { id: 'box5-item1', key: 'box5_item1' },
+      { id: 'box5-item2', key: 'box5_item2' },
+      { id: 'box5-item3', key: 'box5_item3' },
+      { id: 'box5-item4', key: 'box5_item4' },
+      { id: 'box5-item5', key: 'box5_item5' },
+      { id: 'box5-item6', key: 'box5_item6' },
+      { id: 'box5-item7', key: 'box5_item7' },
+      { id: 'price', key: 'price' },
+      { id: 'price-note', key: 'price_note' }
+    ];
+
+    elements.forEach(({ id, key }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        if (id === 'price') {
+          const country = languageToCountry[lang];
+          element.textContent = `${translations[lang].price_prefix} ${compactPrices[country] || '20.990,00 €'} ${translations[lang].price_suffix}`;
+        } else {
+          element.textContent = translations[lang][key];
+        }
+      } else {
+        console.error(`Element with ID '${id}' not found in the DOM.`);
+      }
+    });
+
+    document.documentElement.lang = lang;
+  }
+
+  // Ensure DOM is fully loaded before setting language
+  function initializeLanguage() {
+    const detectedLang = detectBrowserLanguage();
+    setLanguage(detectedLang);
+  }
+
+  // Use both DOMContentLoaded and load for maximum compatibility
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeLanguage);
+    window.addEventListener('load', initializeLanguage);
+  } else {
+    initializeLanguage();
+  }
+</script>
+</body>
+</html>
