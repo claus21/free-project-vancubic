@@ -19,6 +19,13 @@
       font-style: normal;
       font-display: swap;
     }
+    @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Bd.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
 
     :root {
       --font-sm: 0.95rem;
@@ -99,7 +106,7 @@
       background-color: #ccbea4;
       border: 2px solid #ddd;
       border-radius: 25px;
-      padding: 20px;
+      padding: 0px 10px 20px 20px;
       max-width: 1200px;
       margin: 50px auto;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -111,21 +118,21 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 10% 0% 0 0;
+      padding: 5% 0% 0% 10%;
     }
 
     .banner-column-2 {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: -40px;
+      margin: 100px 0 0 0 ;
     }
 
     .banner img {
-      width: 300px;
+      width: 400px;
       border-radius: 10px;
       object-fit: cover;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
     }
 
     .module {
@@ -151,20 +158,20 @@
 
     .new-module {
       display: flex;
-      align-items: center;
+      align-items: top;
       justify-content: space-between;
       background-color: #ccbea4;
-      border: none;
-      padding: 20px 30px;
+      border-radius: 25px;
+      padding: 40px 30px;
       max-width: 1200px;
-      margin: 20px auto;
+      margin: 0px auto;
       box-shadow: 0 0px 0px rgba(0,0,0,0.1);
     }
 
     .new-module .new-module-content {
       flex: 1;
       margin-right: 20px;
-      padding: 20px;
+      padding: 0px;
       background-color: #ccbea4;
       text-align: left;
     }
@@ -174,14 +181,14 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      padding: 20px;
+      padding: 15px;
     }
 
     .new-module > div:last-child img {
       width: 100%;
-      max-width: 300px;
+      max-width: 400px;
       border-radius: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
       padding-left: 30px;
     
     }
@@ -190,7 +197,7 @@
       font-size: var(--font-price);
       font-weight: 700;
       text-align: left;
-      margin: 10px 0;
+      margin: 0px 0;
     }
 
     .new-module .price-note {
@@ -264,6 +271,7 @@
       .new-module .price, .new-module .price-note {
         text-align: center;
       }
+
     }
   </style>
 </head>
@@ -271,7 +279,7 @@
 <div class="banner">
   <div class="banner-column-1">
     <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_6.png" alt="Banner Image 1">
-    <p id="header" style="font-size: var(--font-xl);">Incluye todo lo que necesitas.</p>
+    <p id="header" style="font-size: var(--font-lg); text-align: left;">Incluye todo lo que necesitas.</p>
   </div>
   <div class="banner-column-2">
     <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/8_aEv.png" alt="Banner Image 2">
@@ -340,9 +348,9 @@
   </div>
   
   <div class="new-module">
-    <div class="new-module-content">
-      <h3 id="box5-subheader">Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h3>
-      <ul class="checklist">
+    <div class="new-module-content" >
+      <h3 class="box5-subheader" id="box5-subheader" style="font-weight: 200;">Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h3>
+      <ul class="checklist" >
         <li class="unchecked" id="box5-item1">Litera de niño</li>
         <li class="unchecked" id="box5-item2">Litera para dos adultos</li>
         <li class="unchecked" id="box5-item3">Armario con estantes en el lateral</li>
@@ -362,7 +370,7 @@
   <script>
     const translations = {
       es: {
-        header: "Incluye todo lo que necesitas.",
+        header: "Premium representa la máxima expresión de calidad y confort en camperización modular. Con acabados refinados y una cuidada selección de extras exclusivos, esta opción está pensada para satisfacer las expectativas más exigentes, convirtiéndose en nuestra propuesta más destacada. Ideal para el cliente exigente que busca lo mejor.",
         box1_header: "Los Módulos VanCubic Premium vienen con el siguiente equipamiento de serie:",
         box1_item1: "Puertas de aluminio + cristal",
         box1_item2: "Suelo tarima vinílica color madera",
@@ -406,7 +414,7 @@
         price_note: "Precio para España. Transporte no incluido."
       },
       pl: {
-        header: "Zawiera wszystko, czego potrzebujesz.",
+        header: "Premium to najwyższy poziom jakości i komfortu w modułowej zabudowie kamperowej. Dzięki dopracowanym wykończeniom i starannie dobranym, ekskluzywnym dodatkom, ta opcja została stworzona z myślą o najbardziej wymagających klientach. To nasza najbardziej prestiżowa propozycja, idealna dla tych, którzy oczekują tego, co najlepsze.",
         box1_header: "Moduly VanCubic Premium są wyposażone w standardzie w:",
         box1_item1: "Drzwi aluminiowe + szklane",
         box1_item2: "Podłoga winylowa w kolorze drewna",
@@ -450,7 +458,7 @@
         price_note: "*Transport included."
       },
       en: {
-        header: "Includes everything you need.",
+        header: "Premium represents the highest expression of quality and comfort in modular camper design. With refined finishes and a carefully curated selection of exclusive extras, this option is designed to meet the highest expectations, making it our most exceptional offering. Ideal for customers who want nothing but the best.",
         box1_header: "VanCubic Premium Modules come with the following standard equipment:",
         box1_item1: "Aluminum and glass doors",
         box1_item2: "Wood-look vinyl plank flooring",
@@ -494,7 +502,7 @@
         price_note: "*Transport included."
       },
       fr: {
-        header: "Inclut tout ce dont vous avez besoin ERCI.",
+        header: "Premium incarne le summum de la qualité et du confort dans l’aménagement modulaire de vans. Avec des finitions raffinées et une sélection soignée d’options exclusives, cette version est conçue pour répondre aux attentes les plus élevées. Il s'agit de notre proposition la plus prestigieuse, idéale pour les clients exigeants en quête de l’excellence.",
         box1_header: "Les modules Premium VanCubic sont livrés avec l'équipement standard suivant:",
         box1_item1: "Portes aluminium et verre (arrière et latérale)",
         box1_item2: "Sol en vinyle couleur bois",
@@ -538,7 +546,7 @@
         price_note: "*Transport inclus."
       },
       nl: {
-        header: "Bevat alles wat je nodig hebt.",
+        header: "Premium staat voor het hoogste niveau van kwaliteit en comfort in modulaire camperinrichting. Met verfijnde afwerkingen en een zorgvuldig samengestelde selectie van exclusieve extra’s is deze optie ontworpen voor de meest veeleisende klanten. Het is onze meest luxe uitvoering, ideaal voor wie alleen genoegen neemt met het allerbeste.",
         box1_header: "De VanCubic Premium module is vitgerust met:",
         box1_item1: "Aluminium + glazen deuren (achter- en zijkant)",
         box1_item2: "Vloer met houtlook",
@@ -658,7 +666,7 @@
       if (element) {
         if (id === 'price') {
           const country = languageToCountry[lang];
-          element.textContent = `${translations[lang].price_prefix} ${compactPrices[country] || '20.990,00 €'} ${translations[lang].price_suffix}`;
+          element.innerHTML = `${translations[lang].price_prefix} <span style="font-weight: 200;">${compactPrices[country] || '20.990,00 €'}</span>  ${translations[lang].price_suffix}`;
         } else {
           element.textContent = translations[lang][key];
         }
