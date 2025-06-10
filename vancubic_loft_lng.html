@@ -19,6 +19,13 @@
       font-style: normal;
       font-display: swap;
     }
+    @font-face {
+      font-family: 'FuturaNowHeadline';
+      src: url('https://raw.githubusercontent.com/claus21/free-project-vancubic/9893331341f4497383b8e5915854696c0320dbba/fonts_vancubic/FuturaNowHeadline-Bd.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
 
     :root {
       --font-sm: 0.95rem;
@@ -99,7 +106,7 @@
       background-color: #bcbeb8;
       border: 2px solid #ddd;
       border-radius: 25px;
-      padding: 20px;
+      padding: 0px 10px 20px 20px;
       max-width: 1200px;
       margin: 50px auto;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -111,21 +118,21 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 10% 0% 0 0;
+      padding: 5% 0% 0% 10%;
     }
 
     .banner-column-2 {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: -40px;
+      margin: 100px 0 0 0 ;
     }
 
     .banner img {
-      width: 300px;
+      width: 400px;
       border-radius: 10px;
       object-fit: cover;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
     }
 
     .module {
@@ -151,20 +158,20 @@
 
     .new-module {
       display: flex;
-      align-items: center;
+      align-items: top;
       justify-content: space-between;
       background-color: #bcbeb8;
-      border: none;
-      padding: 20px 30px;
+      border-radius: 25px;
+      padding: 40px 30px;
       max-width: 1200px;
-      margin: 20px auto;
+      margin: 0px auto;
       box-shadow: 0 0px 0px rgba(0,0,0,0.1);
     }
 
     .new-module .new-module-content {
       flex: 1;
       margin-right: 20px;
-      padding: 20px;
+      padding: 0px;
       background-color: #bcbeb8;
       text-align: left;
     }
@@ -174,14 +181,14 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      padding: 20px;
+      padding: 15px;
     }
 
     .new-module > div:last-child img {
       width: 100%;
-      max-width: 300px;
+      max-width: 400px;
       border-radius: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
       padding-left: 30px;
     
     }
@@ -190,7 +197,7 @@
       font-size: var(--font-price);
       font-weight: 700;
       text-align: left;
-      margin: 10px 0;
+      margin: 0px 0;
     }
 
     .new-module .price-note {
@@ -264,6 +271,7 @@
       .new-module .price, .new-module .price-note {
         text-align: center;
       }
+
     }
   </style>
 </head>
@@ -271,7 +279,7 @@
 <div class="banner">
   <div class="banner-column-1">
     <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/vancubic_4_Xad.png" alt="Banner Image 1">
-    <p id="header" style="font-size: var(--font-xl);">Incluye todo lo que necesitas.</p>
+    <p id="header" style="font-size: var(--font-lg); text-align: left;">Incluye todo lo que necesitas.</p>
   </div>
   <div class="banner-column-2">
     <img src="https://iszdpt.stripocdn.email/content/guids/CABINET_106b91115806a9b41ca495c2aa5002112325c9a3905a02e6b8ebba9433296c21/images/1_HMW.png" alt="Banner Image 2">
@@ -342,7 +350,7 @@
 
 <div class="new-module">
   <div class="new-module-content">
-    <h3 id="box5-subheader">Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h3>
+    <h3 class="box5-subheader" id="box5-subheader" style="font-weight: 200;">Monta el VanCubic a tu gusto eligiendo los extras que necesites.</h3>
     <ul class="checklist">
       <li class="unchecked" id="box5-item1">Litera de niño</li>
       <li class="unchecked" id="box5-item2">Litera para dos adultos</li>
@@ -364,7 +372,7 @@
 <script>
   const translations = {
     es: {
-      header: "Incluye todo lo que necesitas.",
+      header: "Sencillez, funcionalidad y estilo contemporáneo. El modelo Loft apuesta por un diseño minimalista y práctico, pensado para quienes priorizan la eficiencia sin perder de vista la estética. Con acabados limpios y bien cuidados, ofrece una solución equilibrada que combina comodidad y practicidad para una experiencia camper versátil y sin complicaciones.",
       box1_header: "Los Módulos VanCubic Loft vienen con el siguiente equipamiento de serie:",
       box1_item1: "Puertas de aluminio + cristal",
       box1_item2: "Suelo tarima vinílica color madera",
@@ -423,7 +431,7 @@
       price_note: "*Transporte no incluido."
     },
     pl: {
-      header: "Zawiera wszystko, czego potrzebujesz.",
+      header: "Prostota, funkcjonalność i nowoczesny styl. Model Loft stawia na minimalistyczny i praktyczny design idealny dla tych, którzy cenią sobie efektywność bez rezygnowania z estetyki. Dzięki czystym i starannym wykończeniom oferuje zrównoważone połączenie komfortu i funkcjonalności, zapewniając wszechstronne i bezproblemowe podróżowanie kamperem.",
       box1_header: "Moduly VanCubic Loft są wyposażone w standardzie w:",
       box1_item1: "Drzwi aluminiowe + szklane",
       box1_item2: "Podłoga winylowa w kolorze drewna",
@@ -468,7 +476,7 @@
       price_note: "*Transport nie jest zawarty w cenie."
     },
     en: {
-      header: "Includes everything you need.",
+      header: "Simplicity, functionality, and contemporary style. The Loft model embraces a minimalist and practical design, ideal for those who prioritize efficiency without overlooking aesthetics. With clean and well-crafted finishes, it offers a balanced solution that combines comfort and practicality for a versatile, hassle-free camper experience.",
       box1_header: "VanCubic Loft Modules come with the following standard equipment:",
       box1_item1: "Aluminum and glass doors",
       box1_item2: "Wood-look vinyl plank flooring",
@@ -513,7 +521,7 @@
       price_note: "*Transport included."
     },
     fr: {
-      header: "Inclut tout ce dont vous avez besoin.",
+      header: "Simplicité, fonctionnalité et style contemporain. Le modèle Loft adopte un design minimaliste et pratique, pensé pour ceux qui privilégient l’efficacité sans négliger l’esthétique. Avec des finitions propres et soignées, il offre une solution équilibrée qui allie confort et praticité pour une expérience van polyvalente et sans souci.",
       box1_header: "Les modules Loft VanCubic sont livrés avec l'équipement standard suivant:",
       box1_item1: "Portes aluminium et verre (arrière et latérale)",
       box1_item2: "Parquet imitation bois",
@@ -558,7 +566,7 @@
       price_note: "*Transport inclus."
     },
     nl: {
-      header: "Bevat alles wat je nodig hebt.",
+      header: "Eenvoud, functionaliteit en eigentijdse stijl. Het Loft-model heeft een minimalistisch en praktisch ontwerp, bedoeld voor mensen die efficiëntie belangrijk vinden zonder het esthetische aspect uit het oog te verliezen. Met strakke en verzorgde afwerkingen biedt het een evenwichtige oplossing die comfort en gebruiksgemak combineert voor een veelzijdige en zorgeloze camperervaring.",
       box1_header: "De VanCubic Loft module is uitgerust met:",
       box1_item1: "Aluminium + glazen deuren (achter- en zijkant)",
       box1_item2: "Vloer met houtlook",
@@ -605,14 +613,14 @@
   };
 
   const compactPrices = {
-'España': '20.990,00 €',
-'Portugal': '20.990,00 €',
-'Francia': '22.990,00 €',
-'Países Bajos': '23.490,00 €',
-'Bélgica': '23.490,00 €',
-'Luxemburgo': '22.590,00 €',
-'Suiza': '23.000,00 €',
-'Polonia': '21.390,00 €'
+    'España': '20.990,00 €',
+    'Portugal': '20.990,00 €',
+    'Francia': '22.990,00 €',
+    'Países Bajos': '23.490,00 €',
+    'Bélgica': '22.990,00 €',
+    'Luxemburgo': '22.590,00 €',
+    'Suiza': '22.500,00 €',
+    'Polonia': '20.990,00 €'
   };
 
   const languageToCountry = {
@@ -680,7 +688,7 @@
       if (element) {
         if (id === 'price') {
           const country = languageToCountry[lang];
-          element.textContent = `${translations[lang].price_prefix} ${compactPrices[country] || '20.990,00 €'} ${translations[lang].price_suffix}`;
+          element.innerHTML = `${translations[lang].price_prefix} <span style="font-weight: 200;">${compactPrices[country] || '20.990,00 €'}</span>  ${translations[lang].price_suffix}`;
         } else {
           element.textContent = translations[lang][key];
         }
